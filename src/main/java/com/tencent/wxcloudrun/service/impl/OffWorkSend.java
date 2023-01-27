@@ -23,7 +23,7 @@ public class OffWorkSend implements WxChatService {
     public void sendTest(SendTypeRequest send) {
 
         // 下班模板Id
-        String templateId = "你的模板Id";
+        String templateId = "_7TEaOGNypm-lT7lQxdmmg7-IOHS0G1s3boRmdm5QR8";
         // 模板参数
         Map<String, WeChatTemplateMsg> sendMag = new HashMap<String, WeChatTemplateMsg>();
         sendMag.put("offWork", new WeChatTemplateMsg("宝~马上就要下班咯，收拾好随身物品准备早退啦！","#b89485"));
