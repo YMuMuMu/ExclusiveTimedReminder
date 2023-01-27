@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
+
 /**
  * 获取微信token工具类
  */
@@ -19,17 +21,14 @@ public class WeChetAccessToken {
     @Autowired
     private RestTemplate restTemplate;
 
-    //微信配置类文件
-    @Autowired
-    private WxMpProperties wxMpProperties;
 
     public String getToken() {
         //如果缓存中的Token过期，则请求获取Token
         if (WxChatCache.AccessToken.expiration <= System.currentTimeMillis()) {
             //URL:https://api.weixin.qq.com/cgi-bin/token?appid=APPID&secret=APPSECRET
             String url = WxChatConstant.Url.ACCESS_TOKEN_URL
-                    .replace("APPID", wxMpProperties.getAppId())
-                    .replace("APPSECRET", wxMpProperties.getSecret());
+                    .replace("APPID", "wxb8d1f05daa42dea0")
+                    .replace("APPSECRET", "5706568a0aef35c9e3530e0dfdda1c2e");
             //使用restTemplate发起Http请求
             ResponseEntity<String> forEntity = restTemplate.getForEntity(url, String.class);
             JSONObject jsonObject = JSON.parseObject(forEntity.getBody());
