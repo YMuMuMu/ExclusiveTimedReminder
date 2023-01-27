@@ -3,13 +3,10 @@ package com.tencent.wxcloudrun.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tencent.wxcloudrun.config.WxChatCache;
-import com.tencent.wxcloudrun.config.WxMpProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
-import javax.annotation.Resource;
 
 /**
  * 获取微信token工具类
