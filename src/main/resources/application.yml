@@ -12,6 +12,12 @@ spring:
     view:
       suffix: .html
       prefix: /
-
+wx:
+  mp:
+    configs:
+      - appId: wxb8d1f05daa42dea0    # 第一个公众号的appid
+        secret: 5706568a0aef35c9e3530e0dfdda1c2e   # 公众号的appsecret
+        token: yangsen.97        # 接口配置里的Token值
+        aesKey: 123456789    # 接口配置里的EncodingAESKey值
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml

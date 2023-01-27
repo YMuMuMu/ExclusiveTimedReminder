@@ -11,6 +11,9 @@ COPY src /app/src
 # 将pom.xml文件，拷贝到工作目录下
 COPY settings.xml pom.xml /app/
 
+# 容器默认时区为UTC，如需使用上海时间请启用以下时区设置命令
+# RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
+
 # 执行代码编译命令
 # 自定义settings.xml, 选用国内镜像源以提高下载速度
 RUN mvn -s /app/settings.xml -f /app/pom.xml clean package
@@ -18,8 +21,6 @@ RUN mvn -s /app/settings.xml -f /app/pom.xml clean package
 # 选择运行时基础镜像
 FROM alpine:3.13
 
-# 容器默认时区为UTC，如需使用上海时间请启用以下时区设置命令
-# RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
 
 # 使用 HTTPS 协议访问容器云调用证书安装
 RUN apk add ca-certificates
