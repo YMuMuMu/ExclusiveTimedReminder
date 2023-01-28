@@ -20,20 +20,20 @@ public class GirlFriendController {
     //表示每个月星期一到星期五下午4点50分执行
 //    @Scheduled(cron = "0 50 16 ? * MON-FRI")
     //    ” 每15秒，30秒，45秒时触发任务
-    @Scheduled(cron = "0 0 7 * * ?")
+    @Scheduled(cron = "0 0 * * * ?")
     public void sendOffWork() throws ExecutionException, InterruptedException {
 
         System.out.println("发送早安提醒");
         //参数一发送类型，参数二是推送的对象OpenId
-        SendTypeRequest sendTypeRequest = new SendTypeRequest("OffWorkSend","o7mr56byf8BSjtXx73DUq1jVMXXc");
+        SendTypeRequest sendTypeRequest = new SendTypeRequest("OffWorkSend","o7mr56USYpOYeTa_LPHyOtjsAwMk");
         WxChatService chatService = applicationContext.getBean(sendTypeRequest.getType(),WxChatService.class);
         chatService.sendTest(sendTypeRequest);
 
         System.out.println("发送早安提醒");
         //参数一发送类型，参数二是推送的对象OpenId
-        SendTypeRequest ys = new SendTypeRequest("OffWorkSend","o7mr56USYpOYeTa_LPHyOtjsAwMk");
+        SendTypeRequest ys = new SendTypeRequest("OffWorkSend","o7mr56byf8BSjtXx73DUq1jVMXXc");
         WxChatService ysService = applicationContext.getBean(ys.getType(),WxChatService.class);
-        ysService.sendTest(sendTypeRequest);
+        ysService.sendTest(ys);
     }
 }
 
